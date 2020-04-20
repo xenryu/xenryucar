@@ -25,12 +25,8 @@ class FrontController extends Controller
 
     public function product()
     {
-        //BUAT QUERY UNTUK MENGAMBIL DATA PRODUK, LOAD PER PAGENYA KITA GUNAKAN 12 AGAR PRESISI PADA HALAMAN TERSEBUT KARENA DALAM SEBARIS MEMUAT 4 BUAH PRODUK
         $products = Product::orderBy('created_at', 'DESC')->paginate(12);
-        //LOAD JUGA DATA KATEGORI YANG AKAN DITAMPILKAN PADA SIDEBAR
-        $categories = Category::with(['child'])->withCount(['child'])->getParent()->orderBy('name', 'ASC')->get();
-        //LOAD VIEW PRODUCT.BLADE.PHP DAN PASSING KEDUA DATA DIATAS
-        return view('ecommerce.product', compact('products', 'categories'));
+        return view('ecommerce.product', compact('products'));
     }
 
     public function categoryProduct($slug)
