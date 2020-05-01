@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" href="img/favicon.png" type="image/png">
+	<link rel="icon" href="css" type="image/png">
     
     @yield('title')
     
@@ -19,6 +19,21 @@
 	
 	<link rel="stylesheet" href="{{ asset('ecommerce/css/style.css') }}">
 	<link rel="stylesheet" href="{{ asset('ecommerce/css/responsive.css') }}">
+
+	<style>
+		.menu-sidebar-area {
+			list-style-type:none; padding-left: 0; font-size: 15pt;
+		}
+		.menu-sidebar-area > li {
+			margin:0 0 10px 0;
+			list-style-position:inside;
+			border-bottom: 1px solid black;
+		}
+		.menu-sidebar-area > li > a {
+			color: black
+		}
+	</style>
+	@yield('css')
 </head>
 
 <body>
@@ -27,17 +42,17 @@
 		<div class="top_menu row m0">
 			<div class="container-fluid">
 				<div class="float-left">
-					<p>Call Us: 081234567</p>
+					<p>Call Us: 000001022</p>
 				</div>
 				<div class="float-right">
 					<ul class="right_side">
 						@if (auth()->guard('customer')->check())
-						<li><a href="{{ route('customer.logout') }}">Logout</a></li>
-					  @else
-						<li><a href="{{ route('customer.login') }}">Login</a></li>
-					  @endif
-					  <li><a href="#">My Account</a></li>
-					  <li><a href="contact.html">Contact Us</a></li>
+							<li><a href="{{ route('customer.logout') }}">Logout</a></li>
+						@else
+							<li><a href="{{ route('customer.login') }}">Login</a></li>
+						@endif
+						<li><a href="{{ route('customer.dashboard') }}">My Account</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
 					</ul>
 				</div>
 			</div>
@@ -217,7 +232,7 @@
 				<p class="col-lg-12 footer-text text-center">
                     Copyright &copy;<script>document.write(new Date().getFullYear());</script> 
                     All rights reserved | This template is made with 
-                    <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://daengweb.id" target="_blank">Daengweb</a>
+                    <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">XENRYU</a>
 				</p>
 			</div>
 		</div>
@@ -239,5 +254,7 @@
 	<script src="{{ asset('ecommerce/vendors/counter-up/jquery.counterup.js') }}"></script>
 	<script src="{{ asset('ecommerce/js/mail-script.js') }}"></script>
 	<script src="{{ asset('ecommerce/js/theme.js') }}"></script>
+
+	@yield('js')
 </body>
 </html>

@@ -18,14 +18,13 @@
                         <div class="card-header">
                             <h4 class="card-title">
                                 List Product
-                              
-                            
-                               
-                                <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm float-right">Tambah</a>
+                                <div class="float-right">
+                                    <a href="{{ route('product.bulk') }}" class="btn btn-danger btn-sm">Mass Upload</a>
+                                    <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm">Tambah</a>
+                                </div>
                             </h4>
                         </div>
                         <div class="card-body">
-                            
                             @if (session('success'))
                                 <div class="alert alert-success">{{ session('success') }}</div>
                             @endif
@@ -33,7 +32,6 @@
                             @if (session('error'))
                                 <div class="alert alert-danger">{{ session('error') }}</div>
                             @endif
-                      
 
                             <form action="{{ route('product.index') }}" method="get">
                                 <div class="input-group mb-3 col-md-3 float-right">
@@ -43,7 +41,6 @@
                                     </div>
                                 </div>
                             </form>
-                          
                             <div class="table-responsive">
                                 <table class="table table-hover table-bordered">
                                     <thead>
@@ -57,30 +54,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <
-                                        @forelse ($product as $errors)
+                                        @forelse ($product as $row)
                                         <tr>
                                             <td>
-                                                
-                                                <img src="{{ asset('storage/products/' . $errors->image) }}" width="100px" height="100px" alt="{{ $errors->name }}">
+                                                <img src="{{ asset('storage/products/' . $row->image) }}" width="100px" height="100px" alt="{{ $row->name }}">
                                             </td>
                                             <td>
-                                                <strong>{{ $errors->name }}</strong><br>
-                                              
-                                                <label>Kategori: <span class="badge badge-info">{{ $errors->category->name }}</span></label><br>
-                                                <label>Berat: <span class="badge badge-info">{{ $errors->weight }} Kg</span></label>
+                                                <strong>{{ $row->name }}</strong><br>
+                                                <label>Kategori: <span class="badge badge-info">{{ $row->category->name }}</span></label><br>
+                                                <label>Berat: <span class="badge badge-info">{{ $row->weight }} gr</span></label>
                                             </td>
-                                            <td>Rp {{ number_format($errors->price) }}</td>
-                                            <td>{{ $errors->created_at->format('d-m-Y') }}</td>
-                                            
-                                         
-                                            <td>{!! $errors->status_label !!}</td>
+                                            <td>Rp {{ number_format($row->price) }}</td>
+                                            <td>{{ $row->created_at->format('d-m-Y') }}</td>
+                                            <td>{!! $row->status_label !!}</td>
                                             <td>
-                                             
-                                                <form action="{{ route('product.destroy', $errors->id) }}" method="post">
+                                                <form action="{{ route('product.destroy', $row->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                     <a href="{{ route('product.edit', $errors->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                                    <a href="{{ route('product.edit', $row->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                                     <button class="btn btn-danger btn-sm">Hapus</button>
                                                 </form>
                                             </td>
@@ -93,7 +84,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                          
                             {!! $product->links() !!}
                         </div>
                     </div>

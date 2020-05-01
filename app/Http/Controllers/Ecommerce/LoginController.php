@@ -22,7 +22,7 @@ class LoginController extends Controller
         ]);
 
         $auth = $request->only('email', 'password');
-        $auth['status'] = 1;
+        $auth['status'] = 0;
         if (auth()->guard('customer')->attempt($auth)) {
             return redirect()->intended(route('customer.dashboard'));
         }

@@ -10,13 +10,8 @@ use App\Customer;
 use App\Province;
 use App\Order;
 
-
-
 class FrontController extends Controller
 {
-    //
-
-
     public function index()
     {
         $products = Product::orderBy('created_at', 'DESC')->paginate(10);
@@ -94,6 +89,4 @@ class FrontController extends Controller
         $orders = Order::where('ref', $user->id)->where('status', 4)->paginate(10);
         return view('ecommerce.affiliate', compact('orders'));
     }
-
-
 }

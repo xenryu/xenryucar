@@ -1,14 +1,4 @@
 <nav class="sidebar-nav">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="{{url('assets/img/img/avatar5.png')}}" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>XENRYU</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
     <ul class="nav">
         <li class="nav-item">
             <a class="nav-link" href="#">
@@ -27,14 +17,24 @@
                 <i class="nav-icon icon-drop"></i> Produk
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('orders.index') }}">
+                <i class="nav-icon icon-drop"></i> Pesanan
+            </a>
+        </li>
         <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
-                <i class="nav-icon icon-settings"></i> Pengaturan
+            <a class="nav-link nav-dropdown-toggle" href="javascript">
+                <i class="nav-icon icon-settings"></i> Laporan
             </a>
             <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="nav-icon icon-puzzle"></i> Toko
+                    <a class="nav-link" href="{{ route('report.order') }}">
+                        <i class="nav-icon icon-puzzle"></i> Order
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('report.return') }}">
+                        <i class="nav-icon icon-puzzle"></i> Return
                     </a>
                 </li>
             </ul>

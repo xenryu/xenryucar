@@ -13,11 +13,6 @@
                         <h1>Login</h1>
                         <p class="text-muted">Sign In to your account</p>
 
-                      	<!-- ACTIONNYA MENGARAH PADA URL /LOGIN -->
-                      	<!-- UNTUK MENCARI TAU TUJUAN URI DARI ROUTE NAME DIBAWAH, PADA COMMAND LINE, KETIKKAN PHP ARTISAN ROUTE:LIST DAN CARI URI YANG MENGGUNAKAN METHOD POST -->
-                      	<!-- KARENA URI /LOGIN DENGAN METHOD GET DIGUNAKAN UNTUK ME-LOAD VIEW HALAMAN LOGIN -->
-                      	<!-- PENGGUNAAN ROUTE() APABILA ROUTING TERSEBUT MEMILIKI NAMA, ADAPUN NAMENYA ADA PADA COLOM NAME ROUTE:LIST -->
-                      	<!-- JIKA ROUTINGNYA TIDAK MEMILIKI NAMA, MAKA GUNAKAN HELPER URL() DAN DIDALAMNYA ADALAH URINYA. CONTOH URL('/LOGIN') -->
                         <form action="{{ route('login') }}" method="post">
                             @csrf
                             <div class="input-group mb-3">
@@ -26,8 +21,6 @@
                                         <i class="icon-user"></i>
                                     </span>
                                 </div>
-                              
-                              	<!-- $errors->has('email') AKAN MENGECEK JIKA ADA ERROR DARI HASIL VALIDASI LARAVEL, SEMUA KEGAGALAN VALIDASI LARAVEL AKAN DISIMPAN KEDALAM VARIABLE $errors -->
                                 <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" 
                                     type="text" 
                                     name="email"

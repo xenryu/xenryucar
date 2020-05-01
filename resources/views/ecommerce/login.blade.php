@@ -1,7 +1,7 @@
 @extends('layouts.ecommerce')
 
 @section('title')
-    <title>Login - XENCAR</title>
+    <title>Login - USER</title>
 @endsection
 
 @section('content')
@@ -42,7 +42,7 @@
 								<input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="password" name="password" placeholder="******">
+								<input type="password" class="form-control" id="password" name="password" placeholder="PASSWORD">
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">
