@@ -22,11 +22,11 @@ class LoginController extends Controller
         ]);
 
         $auth = $request->only('email', 'password');
-        $auth['status'] = 0;
+        $auth['status'] = 1;
         if (auth()->guard('customer')->attempt($auth)) {
             return redirect()->intended(route('customer.dashboard'));
         }
-        return redirect()->back()->with(['error' => 'Email / Password Salah']);
+        return redirect()->back()->with(['error' => 'Email / Password Salah !PERHATIKAN CAPS LOCK JUGA  ']);
     }
 
     public function dashboard()

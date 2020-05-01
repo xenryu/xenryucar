@@ -1,7 +1,7 @@
 @extends('layouts.ecommerce')
 
 @section('title')
-    <title>List Pesanan - DW Ecommerce</title>
+    <title>List Pesanan - USER</title>
 @endsection
 
 @section('content')
@@ -79,6 +79,7 @@
                                                             @csrf
 
                                                             <a href="{{ route('customer.view_order', $row->invoice) }}" class="btn btn-primary btn-sm mr-1">Detail</a>
+                                                            <a href="{{ route('customer.return', $row->invoice) }}" class="btn btn-danger btn-sm mr-1">Return</a>
                                                             <input type="hidden" name="order_id" value="{{ $row->id }}">
                                                             
                                                             @if ($row->status == 3 && $row->return_count == 0)
